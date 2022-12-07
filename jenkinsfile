@@ -1,7 +1,6 @@
 pipeline {
-   tools {
-        terraform 'Terraform 1.3.6'
-    }
+   agent any
+   
     stages{
         stage('Git '){
             steps{
