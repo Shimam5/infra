@@ -1,0 +1,25 @@
+pipeline {
+   tools {
+        terraform 'Terraform 1.3.6'
+    }
+    stages{
+        stage('Git '){
+            steps{
+                git branch: 'main', credentialsId: '4cf3b80a-8380-42c3-afcb-a98392ecb963', url: 'https://github.com/Shimam5/infra.git'
+            }
+        }
+        stage('Terraform init'){
+            steps{
+                sh 'terraform init'
+            
+            }
+        }
+        stage('Terraform apply'){
+            steps{
+                sh 'terraform apply --auto-approve'
+                
+            }
+        }
+    }
+   
+}
